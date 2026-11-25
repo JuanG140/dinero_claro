@@ -10,6 +10,13 @@ const List<String> categorias = [
   'Otros',
 ];
 
+/// Monedas en las que se puede registrar un gasto: código y nombre.
+const Map<String, String> monedas = {
+  'COP': 'Peso colombiano',
+  'USD': 'Dólar estadounidense',
+  'EUR': 'Euro',
+};
+
 /// Devuelve el ícono que representa cada categoría en la lista de gastos.
 IconData iconoCategoria(String categoria) {
   return switch (categoria) {
