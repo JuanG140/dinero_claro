@@ -233,13 +233,13 @@ flutter test      # debe decir: All tests passed!
 
 | Integrante | Aporte |
 |---|---|
-| Juan Guerra ([@JuanG140](https://github.com/JuanG140)) | Proyecto individual: definición del problema, diseño, implementación, pruebas y documentación. |
+| Juan Pablo Guerra ([@JuanG140](https://github.com/JuanG140)) | Proyecto individual: definición del problema, diseño, implementación, pruebas y documentación. |
 
 ## 15. Fuentes y ayudas utilizadas
 
 - **Material del curso:** navegación con `Navigator`, `StatefulWidget` y `setState`, formularios con validación, `async`/`await`, `http` y SQLite con `sqflite`.
 - **Documentación oficial:** [Flutter](https://docs.flutter.dev), [sqflite](https://pub.dev/packages/sqflite), [http](https://pub.dev/packages/http), [material_ui](https://pub.dev/packages/material_ui) y [ExchangeRate-API](https://www.exchangerate-api.com/docs/free).
-- **Asistente de IA:** usé **Claude (Anthropic)** como apoyo para planear el proyecto por etapas, generar y explicar el código, resolver errores de instalación y compilación, y redactar esta documentación. Revisé, probé y entiendo cada parte del código, y cada etapa se registró en un commit después de probarla en el emulador.
+- **Asistente de IA:** usé **Claude** como apoyo para idear el proyecto por etapas, apoyó en código y resolver errores de instalación y compilación, y redactar esta documentación. Revisé, probé y entiendo el código, y cada etapa se registró en un commit después de probarla en el emulador.
 - **Bocetos:** generados como imágenes SVG para este proyecto.
 
 ## 16. Limitaciones y posibles mejoras
