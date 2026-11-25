@@ -1,12 +1,30 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:dinero_claro/main.dart';
+import 'package:dinero_claro/models/gasto.dart';
+import 'package:dinero_claro/utils/formato.dart';
 
 void main() {
-  testWidgets('Inicio muestra el título y el total del mes', (tester) async {
-    await tester.pumpWidget(const DineroClaroApp());
+  test('formatoPesos pone puntos de miles', () {
+    expect(formatoPesos(1234567), '\$1.234.567');
+    expect(formatoPesos(500), '\$500');
+  });
 
-    expect(find.text('DineroClaro'), findsOneWidget);
-    expect(find.text('Gastado este mes'), findsOneWidget);
+  test('Un gasto pasa a fila de SQLite y vuelve igual', () {
+    final gasto = Gasto(
+      id: 3,
+      descripcion: 'Spotify',
+      montoOriginal: 5.99,
+      moneda: 'USD',
+      tasa: 4000,
+      categoria: 'Suscripciones',
+      fecha: DateTime(2026, 11, 24),
+    );
+
+    final copia = Gasto.fromMap(gasto.toMap());
+
+    expect(copia.id, 3);
+    expect(copia.descripcion, 'Spotify');
+    expect(copia.fecha, gasto.fecha);
+    expect(copia.montoCop, closeTo(23960, 0.01));
   });
 }

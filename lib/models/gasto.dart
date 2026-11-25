@@ -30,4 +30,44 @@ class Gasto {
 
   /// El gasto convertido a pesos colombianos.
   double get montoCop => montoOriginal * tasa;
+
+  /// Convierte el gasto en una fila para la tabla `gastos` de SQLite.
+  /// La fecha se guarda como texto ISO 8601 porque SQLite no tiene tipo fecha.
+  Map<String, Object?> toMap() {
+    return {
+      if (id != null) 'id': id,
+      'descripcion': descripcion,
+      'monto_original': montoOriginal,
+      'moneda': moneda,
+      'tasa': tasa,
+      'categoria': categoria,
+      'fecha': fecha.toIso8601String(),
+    };
+  }
+
+  /// Crea un gasto a partir de una fila leída de SQLite.
+  factory Gasto.fromMap(Map<String, Object?> fila) {
+    return Gasto(
+      id: fila['id'] as int?,
+      descripcion: fila['descripcion'] as String,
+      montoOriginal: (fila['monto_original'] as num).toDouble(),
+      moneda: fila['moneda'] as String,
+      tasa: (fila['tasa'] as num).toDouble(),
+      categoria: fila['categoria'] as String,
+      fecha: DateTime.parse(fila['fecha'] as String),
+    );
+  }
+
+  /// Copia el gasto cambiando el id (se usa al recibir el id de la base).
+  Gasto copyWith({int? id}) {
+    return Gasto(
+      id: id ?? this.id,
+      descripcion: descripcion,
+      montoOriginal: montoOriginal,
+      moneda: moneda,
+      tasa: tasa,
+      categoria: categoria,
+      fecha: fecha,
+    );
+  }
 }
